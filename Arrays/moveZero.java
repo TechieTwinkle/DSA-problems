@@ -1,4 +1,4 @@
-package forGit;
+package forGit.Arrays;
 
 public class moveZero {
     public static void swap(int a, int b, int [] nums)
