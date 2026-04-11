@@ -5,42 +5,46 @@ public class findOccurence{
         // code here
         int n = arr.length;
         int low = 0;
-        int high = n - 1;
+       int high = n - 1;
 
-        int cnt = -1;
-
+// it only searches left smaller than mid matlab
+       int first = -1;
        while(low<=high){
            int mid = low + (high-low)/2;
 
-           if(arr[mid] == target){
-               cnt = mid;
-               high = mid - 1;
-           }
            if(arr[mid] < target){
                low = mid+1;
            }
-           else{
+           else if(arr[mid] > target){
                high = mid-1;
+
+           }
+           else if(arr[mid] == target){
+               first = mid;
+               high = mid - 1;// main line toh ye thi na jo search kar rhi h
+           }
+       }
+       if(first == -1) return 0;
+
+       // it searches only right matlab greater than mid
+       int last = -1;
+       while(low<=high){
+           int mid = low + (high-low)/2;
+
+           if(arr[mid] < target){
+               low = mid+1;
+           }
+           else if(arr[mid] > target){
+               high = mid-1;
+           }
+           else if (arr[mid] == target){
+               last = mid;
+               low = mid + 1;// jo search karti h left
            }
        }
 
-// it only searches right; greater than mid matlab
-        while(low<=high){
-            int mid = low + (high-low)/2;
 
-            if(arr[mid] == target){
-                cnt = mid;
-                low = mid + 1;
-            }
-            if(arr[mid] < target){
-                low = mid+1;
-            }
-            else{
-                high = mid-1;
-
-            }
-        }
-        return cnt;
+       return last - first + 1;
    }
 
     static void main(String[] args) {
@@ -49,3 +53,30 @@ public class findOccurence{
         System.out.println(countFreq(arr,x));
     }
 }
+
+
+
+// while(low<=high)
+//        {
+    //        int mid = low + (high - low) / 2;
+    //        if(nums[mid]<target) low = mid+1;
+    //        else if(nums[mid] > target) high = mid-1;
+    //        else if(nums[mid] == target)
+//        {
+                //first = mid;
+                //high = mid-1;
+//        }
+//        }
+//int second = -1;
+//low = 0;
+//high = n-1;
+//        while(low<=high)
+//        {
+//int mid = low + (high - low) / 2;
+//            if(nums[mid]<target) low = mid+1;
+//        else if(nums[mid] > target) high = mid-1;
+//        else if(nums[mid] == target)
+//        {
+//second = mid;
+//low = mid+1;
+//        }
