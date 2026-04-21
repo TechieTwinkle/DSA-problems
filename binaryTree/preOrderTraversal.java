@@ -24,3 +24,18 @@ public class preOrderTraversal {
     }
 }
 // 1 → 23 → 12 → 6 → 96 → 11 → 69 → 75 → 92 → 24
+
+
+// list.addAll isliye kiya kyunki tum list function ke andr bna rhe ho aur
+//agar list globally define karoge toh list.addall nhi karna padega
+//
+//class Solution {
+//    public List<Integer> preorderTraversal(TreeNode root) {
+//        List<Integer> li = new ArrayList<>();
+//        if(root == null) return li;
+//        li.add(root.val);
+//        li.addAll(preorderTraversal(root.left));
+//        li.addAll(preorderTraversal(root.right));
+//        return li;
+//    }
+//}
