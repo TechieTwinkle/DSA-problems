@@ -1,24 +1,10 @@
 package forGit.linkedList;
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    public ListNode(int val) {
-        this.val = val;
-    }
-
-    public ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
-
 public class intersectionOf2LL {
 
-    public static ListNode intersection(ListNode hA, ListNode hB) {
-        ListNode p1 = hA;
-        ListNode p2 = hB;
+    public static Node intersection(Node hA, Node hB) {
+        Node p1 = hA;
+        Node p2 = hB;
 
         while (p1 != p2) {
 
@@ -38,7 +24,7 @@ public class intersectionOf2LL {
         return p1;
     }
 
-    public static void printList(ListNode head) {
+    public static void printList(Node head) {
         while (head != null) {
             System.out.print(head.val + " -> ");
             head = head.next;
@@ -49,18 +35,18 @@ public class intersectionOf2LL {
     public static void main(String[] args) {
 
         // Common part
-        ListNode common = new ListNode(8);
-        common.next = new ListNode(10);
-        common.next.next = new ListNode(12);
+        Node common = new Node(8);
+        common.next = new Node(10);
+        common.next.next = new Node(12);
 
         // List A: 3 -> 6 -> 9 -> 8 -> 10 -> 12
-        ListNode headA = new ListNode(3);
-        headA.next = new ListNode(6);
-        headA.next.next = new ListNode(9);
+        Node headA = new Node(3);
+        headA.next = new Node(6);
+        headA.next.next = new Node(9);
         headA.next.next.next = common;
 
         // List B: 4 -> 8 -> 10 -> 12
-        ListNode headB = new ListNode(4);
+        Node headB = new Node(4);
         headB.next = common;
 
         System.out.println("List A:");
@@ -69,7 +55,7 @@ public class intersectionOf2LL {
         System.out.println("List B:");
         printList(headB);
 
-        ListNode ans = intersection(headA, headB);
+        Node ans = intersection(headA, headB);
 
         if (ans != null) {
             System.out.println("Intersection Node = " + ans.val);
