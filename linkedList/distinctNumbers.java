@@ -1,22 +1,25 @@
 package forGit.linkedList;
 
-public class removeDupps {
-//    leetcode 83 isme aur 82 me kya diff h  the diff is that ki
-//    hum khud se check kra rhe h 83 me byut iss bar vo pura duplicates
-//    hi nhi lene h
-    public static Node remove(Node head) {
+public class distinctNumbers {
+    public static Node remove2(Node head) {
 
         if (head == null) {
             return null;
         }
 
-        Node temp = head.next;
-        Node t = new Node(head.val);
+        Node t = new Node(-1);
         Node temp2 = t;
+        Node temp = head;
 
         while (temp != null) {
+            boolean dupp = false;
+            while(temp.next !=  null && temp.val == temp.next.val)
+            {
+                dupp = true;
+                temp = temp.next;
+            }
 
-            if (temp.val != t.val) {
+            if (!dupp) {
                 t.next = temp;
                 t = temp;
             }
@@ -26,7 +29,7 @@ public class removeDupps {
 
         t.next = null;
 
-        return temp2;
+        return temp2.next;
     }
 
     public static void printList(Node head) {
@@ -56,9 +59,9 @@ public class removeDupps {
         System.out.println("Original List:");
         printList(head);
 
-        Node ans = remove(head);
-        System.out.println("After Removing Duplicates:");
-        printList(ans);
 
+        Node ans2 = remove2(head);
+        System.out.println("The Distinct Numbers:");
+        printList(ans2);
     }
 }
