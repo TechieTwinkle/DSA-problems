@@ -44,7 +44,7 @@ public class nextGreaterElement {
         int[] nums2 = {1, 3, 4, 2};
 
         int[] ans = obj.nextGreaterElement(nums1, nums2);
-
+//        int[] ans = obj.nextGreaterElements(nums1);
         System.out.print("Output: ");
         for (int i = 0; i < ans.length; i++) {
             System.out.print(ans[i] + " ");
