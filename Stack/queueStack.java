@@ -53,4 +53,4 @@ public class queueStack {
 
         System.out.println("Empty: " + stack.empty()); // true
     }
-} 
+}
