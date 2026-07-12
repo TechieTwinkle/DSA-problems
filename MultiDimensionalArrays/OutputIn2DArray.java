@@ -9,7 +9,7 @@ public class OutputIn2DArray {
         for(int i =0; i< arr.length; i++){
             for(int j = 0;j< arr[0].length; j++){
 //                System.out.print(arr[i][j] + " ");
-                arr[i][j] = sc.nextInt()
+                arr[i][j] = sc.nextInt();
             }
         }
             System.out.println(sum);
